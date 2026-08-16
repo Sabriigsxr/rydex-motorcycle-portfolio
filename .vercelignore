@@ -1,0 +1,9 @@
+# Vercel ignore - only deploy what's needed
+node_modules/
+.git/
+.gitignore
+README.md
+package.json
+start.sh
+poster.html
+generative-art.html

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBRAHIM ELLABAN — GSX-R1000 | Professional Rider</title>
+    <meta name="description" content="Ibrahim Ellaban. Professional Suzuki GSX-R1000 rider. @hemaellaban. SINNER. Speed • Performance • Night Rides.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --gold: #c9a84c;
+            --gold-light: #d4b65f;
+            --gold-dark: #a88a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #8c939c;
+            --text-muted: #4a4f57;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,15,0.9) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10,10,15,0.4) 0%,
+                rgba(10,10,15,0.3) 40%,
+                rgba(10,10,15,0.7) 80%,
+                rgba(10,10,15,1) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 40px rgba(201,168,76,0.3);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 48px;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-scroll span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FEATURE SECTIONS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .feature-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .feature-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-video {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .feature-video video,
+        .feature-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(10,10,15,0.95) 0%,
+                rgba(10,10,15,0.7) 50%,
+                rgba(10,10,15,0.4) 100%
+            );
+            z-index: 2;
+        }
+
+        .feature-section:nth-child(even) .feature-overlay {
+            background: linear-gradient(
+                to left,
+                rgba(10,10,15,0.95) 0%,
+                rgba(10,10,15,0.7) 50%,
+                rgba(10,10,15,0.4) 100%
+            );
+        }
+
+        .feature-content {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+            padding: 80px;
+        }
+
+        .feature-eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.4em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .feature-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .feature-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .feature-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           CINEMATIC BOTTOM SECTION
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .cinema-bottom {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .cinema-bottom .video-container {
+            position: absolute;
+            inset: 0;
+        }
+
+        .cinema-bottom video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .cinema-bottom video.active {
+            opacity: 1;
+        }
+
+        .cinema-bottom .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.2) 0%,
+                rgba(0,0,0,0.4) 40%,
+                rgba(0,0,0,0.85) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .cinema-bottom .rider-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin: 0;
+            text-shadow: 0 4px 30px rgba(201,168,76,0.4);
+        }
+
+        .cinema-bottom .rider-handle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--gold);
+            margin: 12px 0 32px;
+            letter-spacing: 0.2em;
+        }
+
+        .cinema-bottom .tagline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin: 0 0 48px;
+            opacity: 0.9;
+        }
+
+        .cinema-bottom .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: var(--gold);
+            color: var(--bg-primary);
+            box-shadow: 0 0 40px rgba(201,168,76,0.5);
+        }
+
+        .cta-btn.primary {
+            background: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        .cta-btn.primary:hover {
+            background: var(--gold-light);
+            box-shadow: 0 0 50px rgba(201,168,76,0.6);
+        }
+
+        .cinema-bottom .film-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .cinema-bottom .vignette {
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 200px rgba(0,0,0,0.9);
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .cinema-bottom .video-counter {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 0.25em;
+            z-index: 20;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .footer {
+            padding: 48px;
+            text-align: center;
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .feature-section {
+                flex-direction: column !important;
+            }
+
+            .feature-content {
+                padding: 60px 24px;
+            }
+
+            .feature-overlay {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(10,10,15,0.95) 0%,
+                    rgba(10,10,15,0.7) 100%
+                ) !important;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════════════════════════════════ */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#hero" class="nav-logo">SINNER</a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#rider">Rider</a></li>
+            <li><a href="#bike">Bike</a></li>
+            <li><a href="#style">Style</a></li>
+            <li><a href="#cinema">Follow</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-video">
+            <video autoplay muted loop playsinline>
+                <source src="assets/vid/scene_1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Suzuki GSX-R1000</p>
+            <h1 class="hero-title">IBRAHIM<br>ELLABAN</h1>
+            <p class="hero-subtitle">Professional Sportbike Rider. Born for two wheels. Speed. Performance. Night Rides.</p>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Rider Section -->
+    <section class="feature-section" id="rider">
+        <div class="feature-video">
+            <video autoplay muted loop playsinline>
+                <source src="assets/vid/scene_2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="feature-overlay"></div>
+        <div class="feature-content fade-in">
+            <p class="feature-eyebrow">The Rider</p>
+            <h2 class="feature-title">BORN FOR<br>TWO WHEELS</h2>
+            <p class="feature-body">Ibrahim Ellaban. Known as SINNER. A sportbike rider driven by passion for speed, precision, and the freedom of the open road. Every ride is a statement.</p>
+            <div class="feature-tags">
+                <span class="feature-tag">Sportbike</span>
+                <span class="feature-tag">GSX-R1000</span>
+                <span class="feature-tag">SINNER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bike Section -->
+    <section class="feature-section" id="bike">
+        <div class="feature-video">
+            <video autoplay muted loop playsinline>
+                <source src="assets/vid/scene_3.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="feature-overlay"></div>
+        <div class="feature-content fade-in">
+            <p class="feature-eyebrow">The Machine</p>
+            <h2 class="feature-title">SUZUKI<br>GSX-R1000</h2>
+            <p class="feature-body">Race-bred performance. 999.8cc inline-four engine with Variable Valve Timing. Brembo monoblock calipers. Ohlins race suspension. Built for the track, unleashed on the streets.</p>
+            <div class="feature-tags">
+                <span class="feature-tag">999.8cc</span>
+                <span class="feature-tag">Brembo</span>
+                <span class="feature-tag">Ohlins</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Section -->
+    <section class="feature-section" id="style">
+        <div class="feature-video">
+            <video autoplay muted loop playsinline>
+                <source src="assets/vid/scene_4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="feature-overlay"></div>
+        <div class="feature-content fade-in">
+            <p class="feature-eyebrow">The Style</p>
+            <h2 class="feature-title">SPEED •<br>PERFORMANCE</h2>
+            <p class="feature-body">Night rides through city lights. Track days pushing limits. Carbon fiber aesthetics. Titanium exhaust notes. The motorcycle is not just transportation — it's identity.</p>
+            <div class="feature-tags">
+                <span class="feature-tag">Night Rides</span>
+                <span class="feature-tag">Track Days</span>
+                <span class="feature-tag">Carbon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinematic Bottom Section -->
+    <section class="cinema-bottom" id="cinema">
+        <div class="video-container">
+            <video class="active" autoplay muted loop playsinline>
+                <source src="assets/real_videos/tiktok_cinematic.mp4" type="video/mp4">
+            </video>
+            <video muted loop playsinline>
+                <source src="assets/real_videos/tiktok2_cinematic.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="film-grain"></div>
+        <div class="vignette"></div>
+        <div class="video-counter">01 / 02</div>
+        <div class="overlay">
+            <p class="rider-name">IBRAHIM ELLABAN</p>
+            <p class="rider-handle">@hemaellaban</p>
+            <p class="tagline">SPEED • PERFORMANCE • NIGHT RIDES</p>
+            <div class="cta-buttons">
+                <a href="https://www.instagram.com/hemaellaban/" target="_blank" class="cta-btn primary">VIEW INSTAGRAM</a>
+                <a href="#hero" class="cta-btn">BACK TO TOP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Ibrahim Ellaban. All rights reserved. <a href="https://www.instagram.com/hemaellaban/" target="_blank">@hemaellaban</a></p>
+    </footer>
+
+    <script>
+        // Video carousel for cinema section
+        (function() {
+            const videos = document.querySelectorAll('.cinema-bottom video');
+            const counter = document.querySelector('.video-counter');
+            let current = 0;
+            
+            if (videos.length > 1) {
+                setInterval(() => {
+                    videos[current].classList.remove('active');
+                    current = (current + 1) % videos.length;
+                    videos[current].classList.add('active');
+                    counter.textContent = `0${current + 1} / 0${videos.length}`;
+                }, 6000);
+            }
+        })();
+
+        // Fade-in animation on scroll
+        (function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        })();
+
+        // Parallax effect for hero
+        (function() {
+            const heroVideo = document.querySelector('.hero-video video');
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                if (heroVideo) {
+                    heroVideo.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

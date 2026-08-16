@@ -1,0 +1,19 @@
+{
+  "name": "sinner-motorcycle-portfolio",
+  "version": "1.0.0",
+  "description": "Cinematic motorcycle portfolio for Ibrahim Ellaban (@hemaellaban)",
+  "main": "index.html",
+  "scripts": {
+    "start": "./start.sh",
+    "dev": "./start.sh 3000"
+  },
+  "keywords": [
+    "motorcycle",
+    "portfolio",
+    "cinematic",
+    "gsx-r1000",
+    "sinner"
+  ],
+  "author": "Ibrahim Ellaban (@hemaellaban)",
+  "license": "MIT"
+}

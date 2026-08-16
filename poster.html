@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINNER — Motorcycle Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .poster {
+            width: 600px;
+            height: 900px;
+            background: #0a0a0f;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+        }
+
+        /* Background grain texture */
+        .poster::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        /* Vignette */
+        .poster::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 200px rgba(0,0,0,0.8);
+            z-index: 2;
+        }
+
+        .poster-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px 50px;
+        }
+
+        /* Top section - Motorcycle visual area */
+        .poster-hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bike-silhouette {
+            width: 400px;
+            height: 300px;
+            position: relative;
+        }
+
+        /* Abstract motorcycle shape using CSS */
+        .bike-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bike-shape::before {
+            content: '';
+            position: absolute;
+            width: 280px;
+            height: 80px;
+            background: linear-gradient(90deg, transparent, #c9a84c 20%, #c9a84c 80%, transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            border-radius: 40px;
+            opacity: 0.9;
+        }
+
+        .bike-shape::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5) 30%, rgba(201,168,76,0.5) 70%, transparent);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-8deg);
+            border-radius: 30px;
+        }
+
+        /* Speed lines */
+        .speed-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .speed-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+            animation: speedLine 2s ease-in-out infinite;
+        }
+
+        .speed-line:nth-child(1) { width: 200px; top: 30%; left: 10%; animation-delay: 0s; }
+        .speed-line:nth-child(2) { width: 150px; top: 45%; left: 20%; animation-delay: 0.3s; }
+        .speed-line:nth-child(3) { width: 180px; top: 60%; left: 5%; animation-delay: 0.6s; }
+        .speed-line:nth-child(4) { width: 120px; top: 75%; left: 15%; animation-delay: 0.9s; }
+
+        @keyframes speedLine {
+            0%, 100% { opacity: 0; transform: translateX(-50px); }
+            50% { opacity: 1; transform: translateX(50px); }
+        }
+
+        /* Gold accent line */
+        .accent-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c9a84c 30%, #c9a84c 70%, transparent);
+            margin: 40px 0;
+        }
+
+        /* Middle section - Name */
+        .poster-name {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .name-first {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3em;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .name-last {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3em;
+            line-height: 1;
+        }
+
+        /* Divider */
+        .poster-divider {
+            width: 60px;
+            height: 2px;
+            background: #c9a84c;
+            margin: 30px auto;
+        }
+
+        /* Bike info */
+        .poster-bike {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .bike-make {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #c9a84c;
+            letter-spacing: 0.4em;
+            margin-bottom: 8px;
+        }
+
+        .bike-model {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.2em;
+        }
+
+        /* Bottom section - Social */
+        .poster-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .poster-handle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #c9a84c;
+            letter-spacing: 0.15em;
+        }
+
+        .poster-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.2em;
+        }
+
+        /* Corner accents */
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(201,168,76,0.3);
+            z-index: 4;
+        }
+
+        .corner-accent.top-left {
+            top: 30px;
+            left: 30px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-accent.top-right {
+            top: 30px;
+            right: 30px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-accent.bottom-left {
+            bottom: 30px;
+            left: 30px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-accent.bottom-right {
+            bottom: 30px;
+            right: 30px;
+            border-left: none;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent top-right"></div>
+        <div class="corner-accent bottom-left"></div>
+        <div class="corner-accent bottom-right"></div>
+        
+        <div class="poster-content">
+            <!-- Hero section with abstract motorcycle -->
+            <div class="poster-hero">
+                <div class="bike-silhouette">
+                    <div class="bike-shape"></div>
+                    <div class="speed-lines">
+                        <div class="speed-line"></div>
+                        <div class="speed-line"></div>
+                        <div class="speed-line"></div>
+                        <div class="speed-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Name section -->
+            <div>
+                <div class="accent-line"></div>
+                
+                <div class="poster-name">
+                    <div class="name-first">IBRAHIM</div>
+                    <div class="name-last">ELLABAN</div>
+                </div>
+
+                <div class="poster-divider"></div>
+
+                <div class="poster-bike">
+                    <div class="bike-make">SUZUKI</div>
+                    <div class="bike-model">GSX-R1000</div>
+                </div>
+
+                <div class="accent-line"></div>
+            </div>
+
+            <!-- Footer -->
+            <div class="poster-footer">
+                <div class="poster-handle">@hemaellaban</div>
+                <div class="poster-brand">SINNER</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
